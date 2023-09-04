@@ -7,6 +7,7 @@ module.exports = {
   printWidth: 80,
   proseWrap: 'never',
   singleQuote: true,
+  semi: false,
   trailingComma: 'all',
   overrides: [
     {
@@ -16,4 +17,4 @@ module.exports = {
       },
     },
   ],
-};
+}
