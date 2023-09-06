@@ -1,8 +1,12 @@
 {
-  "name": "dumi-components",
-  "version": "0.0.2",
+  "name": "@mudssky/dumi-components",
+  "version": "0.0.3",
   "description": "A react library developed with dumi",
   "license": "MIT",
+  "author": "mudssky",
+  "contributors": [
+    "mudssky"
+  ],
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -79,7 +83,8 @@
     "react-dom": ">=17.0.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://localhost:4873"
   },
   "authors": [
     "mudssky"
