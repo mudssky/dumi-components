@@ -19,4 +19,4 @@ features:
     description: Put ! description here
 ---
 
-dumi-components
+react-components

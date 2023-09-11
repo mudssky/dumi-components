@@ -9,7 +9,7 @@ nav:
 ## 测试用组件
 
 ```tsx
-import { TestComp } from 'dumi-components'
+import { TestComp } from '@mudssky/react-components'
 import React from 'react'
 
 export default () => <TestComp />
