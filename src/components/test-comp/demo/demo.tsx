@@ -1,4 +1,4 @@
+import { TestComp } from '@mudssky/react-components'
 import React from 'react'
-import { TestComp } from 'react-components'
 
 export default () => <TestComp />
