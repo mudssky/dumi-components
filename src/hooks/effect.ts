@@ -11,13 +11,17 @@ import { useEffect, useRef } from 'react'
  */
 function useVideoTimer(
   saveFn: (time: number) => void,
-  saveDuration: number = 60,
-  checkIsPlaying?: () => boolean,
+  options?: {
+    saveDuration?: number
+    checkIsPlaying?: () => boolean
+  },
 ) {
+  const { saveDuration = 60, checkIsPlaying } = options || {}
   const timeCountRef = useRef(0)
   function getTimeCount() {
     return timeCountRef.current
   }
+
   useEffect(() => {
     // 每秒时间加1的定时器，通过judgeFn判断，如果
     const timeCountInterval = setInterval(() => {
