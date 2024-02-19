@@ -18,7 +18,7 @@ jobs:
           version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       # 文档编译命令，如果是 react 模板需要修改为 npm run docs:build
