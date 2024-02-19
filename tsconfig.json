@@ -8,9 +8,9 @@
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "dumi-components": ["src"],
-      "dumi-components/*": ["src/*", "*"]
+      "@mudssky/react-components": ["src"],
+      "@mudssky/react-components/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", "test"]
 }

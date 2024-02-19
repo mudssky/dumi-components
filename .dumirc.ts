@@ -3,7 +3,7 @@ import { defineConfig } from 'dumi'
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: {
-    name: 'dumi-components',
+    name: 'react-components',
     logo: false,
     // 不配置时默认为约定式路由
     // nav
