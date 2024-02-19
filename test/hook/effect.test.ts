@@ -1,6 +1,7 @@
 import { randomInt } from '@mudssky/jsutils'
-import { useVideoTimer } from '@mudssky/react-components'
+import { useStateRef, useVideoTimer } from '@mudssky/react-components'
 import { renderHook } from '@testing-library/react-hooks'
+import { useEffect, useState } from 'react'
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 describe('useVideoTimer', () => {
   beforeEach(() => {
@@ -98,4 +99,31 @@ describe('useVideoTimer', () => {
       repeats: 5,
     },
   )
+})
+
+describe('useStateRef', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+  })
+
+  test.concurrent('ref should sync with state ', async () => {
+    const seconds = randomInt(60)
+    const { result } = renderHook(() => {
+      const [count, setCount] = useState(0)
+      const countRef = useStateRef(count)
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setCount(countRef.current + 1)
+        }, 1000)
+
+        return () => {
+          clearInterval(timer)
+        }
+      }, [])
+      return countRef
+    })
+    vi.advanceTimersByTime(seconds * 1000)
+    // console.log({ result, seconds })
+    expect(result.current.current).toBe(seconds)
+  })
 })

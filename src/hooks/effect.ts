@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 
 /**
  * 用于统计视频观看时长，saveFn会定期调用把已经观看的时间保存（调用后端接口加时间）。
@@ -54,4 +54,30 @@ function useVideoTimer(
   return { getTimeCount }
 }
 
-export { useVideoTimer }
+/**
+ * 使用useRef同步state的值，解决useEffect闭包陷阱问题
+ * 还有一种方法是使用setState时使用函数就不会产生闭包。或者使用useReducer
+ *
+ * @param state
+ * @returns
+ *
+ * @example
+ * 这个是经典案例
+ *     const [count,setCount] = useState(0);
+    useEffect(() => {
+        setInterval(() => {
+            console.log(count);
+            setCount(count + 1);
+        }, 1000);
+    }, []);
+ */
+function useStateRef<T = any>(state: T) {
+  const stateRef = useRef<T>(state)
+  // 每次渲染时更新stateRef，确保每次ref中是最新的state
+  useLayoutEffect(() => {
+    stateRef.current = state
+  })
+  return stateRef
+}
+
+export { useStateRef, useVideoTimer }
