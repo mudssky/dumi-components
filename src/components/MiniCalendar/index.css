@@ -1,0 +1,28 @@
+.calendar {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .days {
+    display: flex;
+    flex-wrap: wrap;
+
+    .empty,
+    .day {
+      width: calc(100% / 7);
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .day:hover,
+    .selected {
+      background-color: #ccc;
+      cursor: pointer;
+    }
+
+    .gray {
+      color: #ccc;
+    }
+  }
+}
