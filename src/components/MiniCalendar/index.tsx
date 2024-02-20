@@ -128,7 +128,7 @@ const InternalMiniCalendar: React.ForwardRefRenderFunction<
     return days
   }
   return (
-    <div className="calendar">
+    <div className="mini-calendar">
       <div className="header">
         <button onClick={handlePrevMonth} type="button">
           &lt;
